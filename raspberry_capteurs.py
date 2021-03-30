@@ -12,14 +12,11 @@ while True:
     try:
         line=DWM.readline()
         if(line):
-            if len(line)>=140:
-                parse=line.decode().split(",")
-                x_pos=parse[parse.index("POS")+1]
-                y_pos=parse[parse.index("POS")+2]
-                val = (x_pos,y_pos)
-                print(datetime.datetime.now().strftime("%H:%M:%S"),"(",x_pos,", ",y_pos,")")
-            else:
-                print("Position not calculated: ",line.decode())
+            parse=line.decode().split(",")
+            x_pos=parse[parse.index("POS")+1]
+            y_pos=parse[parse.index("POS")+2]
+            val = (x_pos,y_pos)
+            print(datetime.datetime.now().strftime("%H:%M:%S"),"(",x_pos,", ",y_pos,")")
     except Exception as ex:
         print(ex)
         break
